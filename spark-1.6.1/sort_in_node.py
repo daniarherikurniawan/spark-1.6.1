@@ -12,9 +12,9 @@ if os.path.exists("workfile"):
     os.remove("workfile")
     
 #some of the configuration is set through declaration at spark-defaults.conf
-conf = SparkConf().setAppName("Sorting").setMaster("spark://node-1.testspark.cs331-uc.emulab.net:7077").set("spark.reducer.maxSizeInFlight", "1m")
-# conf = SparkConf().setAppName("Sorting").setMaster("spark://node-5.sparknewtopology.cs331-uc.emulab.net:7077")
-# conf = SparkConf().setAppName("Sorting").setMaster("spark://daniar-X450JF:7077")
+conf = SparkConf().setAppName("Sorting").setMain("spark://node-1.testspark.cs331-uc.emulab.net:7077").set("spark.reducer.maxSizeInFlight", "1m")
+# conf = SparkConf().setAppName("Sorting").setMain("spark://node-5.sparknewtopology.cs331-uc.emulab.net:7077")
+# conf = SparkConf().setAppName("Sorting").setMain("spark://daniar-X450JF:7077")
 
 
 sc = SparkContext(conf=conf)
@@ -34,4 +34,4 @@ for (num, unitcount) in output:
 f.closed
 # sorted_array.saveAsTextFile("/proj/cs331-uc/daniar/result_py")
 
-# ./bin/spark-submit sort_in_node.py --master spark://daniar-X450JF:7077 --deploy-mode cluster --num-executors 4
+# ./bin/spark-submit sort_in_node.py --main spark://daniar-X450JF:7077 --deploy-mode cluster --num-executors 4
